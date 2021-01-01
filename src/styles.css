@@ -13,3 +13,11 @@ body {
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
+
+.load-more-button {
+  display: none;
+}
+
+.load-more-button.is-visible {
+  display: block;
+}

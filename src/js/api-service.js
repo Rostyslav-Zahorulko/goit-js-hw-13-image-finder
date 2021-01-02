@@ -2,7 +2,7 @@ export default {
   searchQuery: '',
   page: 1,
 
-  fetchPhotos() {
+  fetchImages() {
     return fetch(
       `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=12&key=19734316-10978fed4d6ca650a445cb4b9`,
     )

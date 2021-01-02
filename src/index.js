@@ -16,11 +16,11 @@ function handleFormSubmit(event) {
 
   apiService.resetPage();
 
-  apiService.fetchPhotos().then(photos => updateMarkup(photos));
+  apiService.fetchImages().then(images => updateMarkup(images));
 }
 
 refs.button.addEventListener('click', handleButtonClick);
 
 function handleButtonClick() {
-  apiService.fetchPhotos().then(photos => updateMarkup(photos));
+  apiService.fetchImages().then(images => updateMarkup(images));
 }

@@ -2,6 +2,7 @@ import './scss/main.scss';
 import refs from './js/refs';
 import apiService from './js/api-service';
 import updateMarkup from './js/update-markup';
+import showBigImage from './js/modal';
 
 refs.form.addEventListener('submit', handleFormSubmit);
 
@@ -17,6 +18,8 @@ function handleFormSubmit(event) {
   apiService.resetPage();
 
   apiService.fetchImages().then(images => updateMarkup(images));
+
+  showBigImage();
 }
 
 refs.button.addEventListener('click', handleButtonClick);

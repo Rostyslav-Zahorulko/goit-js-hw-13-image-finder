@@ -1,8 +1,8 @@
 import refs from './refs';
-import card from '../templates/card.hbs';
+import galleryItem from '../templates/gallery-item.hbs';
 
 function updateMarkup(images) {
-  const markup = card(images);
+  const markup = galleryItem(images);
   refs.list.insertAdjacentHTML('beforeend', markup);
 
   refs.button.classList.add('is-visible');

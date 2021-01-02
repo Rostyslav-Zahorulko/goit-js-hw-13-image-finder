@@ -1,4 +1,4 @@
-import './styles.css';
+import './scss/main.scss';
 import refs from './js/refs';
 import apiService from './js/api-service';
 import updateMarkup from './js/update-markup';

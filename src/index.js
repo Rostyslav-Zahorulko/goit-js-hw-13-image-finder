@@ -1,29 +1,31 @@
 import './scss/main.scss';
 import refs from './js/refs';
 import apiService from './js/api-service';
-import updateMarkup from './js/update-markup';
-import showBigImage from './js/modal';
+import updateGalleryMarkup from './js/gallery-markup';
+import handleOnGalleryClick from './js/modal';
 
 refs.form.addEventListener('submit', handleFormSubmit);
 
 function handleFormSubmit(event) {
   event.preventDefault();
 
+  refs.gallery.removeEventListener('click', handleOnGalleryClick);
+
   const form = event.currentTarget;
   apiService.query = form.elements.query.value;
 
-  refs.list.innerHTML = '';
+  refs.gallery.innerHTML = '';
   form.reset();
 
   apiService.resetPage();
 
-  apiService.fetchImages().then(images => updateMarkup(images));
+  apiService.fetchImages().then(images => updateGalleryMarkup(images));
 
-  showBigImage();
+  refs.gallery.addEventListener('click', handleOnGalleryClick);
 }
 
-refs.button.addEventListener('click', handleButtonClick);
+refs.button.addEventListener('click', handleOnButtonClick);
 
-function handleButtonClick() {
-  apiService.fetchImages().then(images => updateMarkup(images));
+function handleOnButtonClick() {
+  apiService.fetchImages().then(images => updateGalleryMarkup(images));
 }

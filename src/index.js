@@ -3,6 +3,7 @@ import refs from './js/refs';
 import apiService from './js/api-service';
 import updateGalleryMarkup from './js/gallery-markup';
 import handleOnGalleryClick from './js/modal';
+import { showNotice, showSuccess } from './js/notifications';
 
 refs.form.addEventListener('submit', handleFormSubmit);
 
@@ -29,7 +30,18 @@ function fetchImages() {
   refs.button.classList.add('is-hidden');
 
   apiService.fetchImages().then(images => {
+    if (images.length === 0) {
+      showNotice();
+
+      refs.button.classList.add('is-hidden');
+
+      return;
+    }
+
+    showSuccess();
+
     updateGalleryMarkup(images);
+
     refs.button.classList.remove('is-hidden');
 
     setTimeout(() => {

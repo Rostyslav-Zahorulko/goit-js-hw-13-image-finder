@@ -18,14 +18,25 @@ function handleFormSubmit(event) {
   form.reset();
 
   apiService.resetPage();
-
-  apiService.fetchImages().then(images => updateGalleryMarkup(images));
+  fetchImages();
 
   refs.gallery.addEventListener('click', handleOnGalleryClick);
 }
 
-refs.button.addEventListener('click', handleOnButtonClick);
+refs.button.addEventListener('click', fetchImages);
 
-function handleOnButtonClick() {
-  apiService.fetchImages().then(images => updateGalleryMarkup(images));
+function fetchImages() {
+  refs.button.classList.add('is-hidden');
+
+  apiService.fetchImages().then(images => {
+    updateGalleryMarkup(images);
+    refs.button.classList.remove('is-hidden');
+
+    setTimeout(() => {
+      window.scrollTo({
+        top: document.documentElement.offsetHeight,
+        behavior: 'smooth',
+      });
+    }, 3000);
+  });
 }

@@ -1,5 +1,5 @@
 .load-more-button {
-  display: none;
+  display: block;
   margin: 0 auto;
   padding: 10px;
   border: solid 3px;
@@ -11,6 +11,6 @@
   line-height: 1;
 }
 
-.load-more-button.is-visible {
-  display: block;
+.load-more-button.is-hidden {
+  display: none;
 }

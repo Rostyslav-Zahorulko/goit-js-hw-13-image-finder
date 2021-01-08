@@ -11,16 +11,7 @@ export default {
         this.incrementPage();
 
         return hits;
-      })
-      .catch(error => console.log(error));
-  },
-
-  resetPage() {
-    this.page = 1;
-  },
-
-  incrementPage() {
-    this.page += 1;
+      });
   },
 
   get query() {
@@ -29,5 +20,13 @@ export default {
 
   set query(value) {
     this.searchQuery = value;
+  },
+
+  incrementPage() {
+    this.page += 1;
+  },
+
+  resetPage() {
+    this.page = 1;
   },
 };

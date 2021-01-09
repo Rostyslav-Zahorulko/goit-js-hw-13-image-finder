@@ -3,7 +3,11 @@ import refs from './js/refs';
 import apiService from './js/api-service';
 import updateGalleryMarkup from './js/gallery-markup';
 import handleOnGalleryClick from './js/modal';
-import { showNotice, showSuccessMessage } from './js/notifications';
+import {
+  showNotice,
+  showSuccessMessage,
+  showErrorMessage,
+} from './js/notifications';
 import scroll from './js/scroll';
 
 refs.form.addEventListener('submit', handleFormSubmit);
@@ -43,5 +47,5 @@ function fetchImages() {
       refs.button.classList.remove('is-hidden');
       scroll();
     })
-    .catch(console.log);
+    .catch(({ message }) => showErrorMessage(message));
 }

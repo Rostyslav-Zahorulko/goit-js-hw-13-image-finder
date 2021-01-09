@@ -1,10 +1,12 @@
 export default {
+  baseURL: 'https://pixabay.com/api/',
   searchQuery: '',
   page: 1,
+  key: '19734316-10978fed4d6ca650a445cb4b9',
 
   fetchImages() {
     return fetch(
-      `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=12&key=19734316-10978fed4d6ca650a445cb4b9`,
+      `${this.baseURL}?image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=12&key=${this.key}`,
     )
       .then(response => response.json())
       .then(({ hits }) => {

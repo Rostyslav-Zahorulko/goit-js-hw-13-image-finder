@@ -1,8 +1,11 @@
 import './scss/main.scss';
 import refs from './js/refs';
 import apiService from './js/api-service';
-import updateGalleryMarkup from './js/gallery-markup';
-import handleOnGalleryClick from './js/modal';
+import {
+  updateGalleryMarkup,
+  startListeningOnGalleryClick,
+  stopListeningOnGalleryClick,
+} from './js/gallery';
 import {
   showNotice,
   showSuccessMessage,
@@ -16,15 +19,19 @@ function handleFormSubmit(event) {
   event.preventDefault();
 
   refs.gallery.innerHTML = '';
-  refs.gallery.removeEventListener('click', handleOnGalleryClick);
+
+  stopListeningOnGalleryClick();
 
   const form = event.currentTarget;
+
   apiService.query = form.elements.query.value;
 
   apiService.resetPage();
+
   fetchImages();
 
-  refs.gallery.addEventListener('click', handleOnGalleryClick);
+  startListeningOnGalleryClick();
+
   form.reset();
 }
 

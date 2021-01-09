@@ -1,8 +1,8 @@
-export default {
+const apiService = {
   baseURL: 'https://pixabay.com/api/',
+  key: '19734316-10978fed4d6ca650a445cb4b9',
   searchQuery: '',
   page: 1,
-  key: '19734316-10978fed4d6ca650a445cb4b9',
 
   fetchImages() {
     return fetch(
@@ -32,3 +32,5 @@ export default {
     this.page = 1;
   },
 };
+
+export default apiService;

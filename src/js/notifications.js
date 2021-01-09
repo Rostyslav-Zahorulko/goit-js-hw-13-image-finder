@@ -9,17 +9,15 @@ function showNotice() {
   return notice({
     title:
       'По вашему запросу изображений не найдено. Пожалуйста, уточните запрос!',
-    hide: true,
     delay: 2000,
   });
 }
 
-function showSuccess() {
+function showSuccessMessage() {
   return success({
     title: 'По вашему запросу найдены изображения. Приятного просмотра!',
-    hide: true,
     delay: 2000,
   });
 }
 
-export { showNotice, showSuccess };
+export { showNotice, showSuccessMessage };

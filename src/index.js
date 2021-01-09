@@ -3,7 +3,7 @@ import refs from './js/refs';
 import apiService from './js/api-service';
 import updateGalleryMarkup from './js/gallery-markup';
 import handleOnGalleryClick from './js/modal';
-import { showNotice, showSuccess } from './js/notifications';
+import { showNotice, showSuccessMessage } from './js/notifications';
 import scroll from './js/scroll';
 
 refs.form.addEventListener('submit', handleFormSubmit);
@@ -38,7 +38,7 @@ function fetchImages() {
         return;
       }
 
-      showSuccess();
+      showSuccessMessage();
       updateGalleryMarkup(images);
       refs.button.classList.remove('is-hidden');
       scroll();
